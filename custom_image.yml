@@ -1,0 +1,9 @@
+- name: Create web server image
+  hosts: all
+  remote_user: root
+  become: true
+  tasks:
+   - name: Build Image
+     docker_image:
+       path: /root/
+       name: webserverimage
