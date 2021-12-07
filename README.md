@@ -1,0 +1,1 @@
+# jenkins-git-ansible-docker-pipeline
