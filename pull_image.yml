@@ -1,0 +1,8 @@
+- name: Pull the Centos 7 image
+  hosts: all
+  remote_user: ansible
+  become: true
+  tasks:
+   - name: pull
+     docker_image:
+       name: centos:7
