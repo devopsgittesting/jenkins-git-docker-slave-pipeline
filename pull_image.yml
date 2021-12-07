@@ -1,4 +1,5 @@
 - name: Pull the Centos 7 image
+  hosts: dev
   remote_user: ansible
   become: true
   tasks:
