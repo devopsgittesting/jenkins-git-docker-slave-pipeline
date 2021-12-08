@@ -2,6 +2,9 @@
   hosts: all
   become: true
   tasks:
+   - name: Start docker service
+     service:
+       name: docker
    - name: pull
      docker_image:
        name: centos:7
