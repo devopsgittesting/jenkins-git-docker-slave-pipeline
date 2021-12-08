@@ -3,6 +3,10 @@
   become: true
   remote_user: root
   tasks:
+    - name: Start docker service
+      service:
+        name: docker
+        state: started
     - name: web server container
       docker_container:
         name: apache_container
