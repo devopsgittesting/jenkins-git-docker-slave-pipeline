@@ -20,6 +20,7 @@ pipeline {
                     stage('custom image build') {
                  steps {
                     ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'custom_image.yml'
+                          
                  }
                      
                  }
