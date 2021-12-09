@@ -7,4 +7,4 @@
      docker_image:
        path: /root/
        name: webserverimage
-       tag: latest
+       repository: devopstest777/webserverimage:latest
