@@ -35,9 +35,9 @@ pipeline {
                      withCredentials([string(credentialsId: 'docker_pwd', variable: 'dockerid')]) {
                      sh "docker login -u devopstest777 -p ${dockerid}"
                 }
-                
+                 sh "docker images"
                  sh "docker push devopstest777/webserverimage"       
-		    sh 'docker images'
+		   
             
             }}
     
