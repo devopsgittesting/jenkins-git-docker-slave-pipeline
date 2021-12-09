@@ -6,4 +6,5 @@
    - name: Build Image
      docker_image:
        path: /root/
-       name: devopstest777/webserverimage
+       name: webserverimage
+       tag: latest
