@@ -17,7 +17,7 @@ pipeline {
                  
                  
                  
-                    stage('custom image build') {
+                    stage('Build Custom Image & Push to DockerHub') {
                  steps {
                     ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'custom_image.yml'
                  }
@@ -29,24 +29,5 @@ pipeline {
          ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'create_container.yml'
                  }
                  }
-                 
-                  stage('DockerHub Push'){
-            steps{
-                     withCredentials([string(credentialsId: 'docker_pwd', variable: 'dockerid')]) {
-                     sh "docker login -u devopstest777 -p ${dockerid}"
-                }
-                 sh "docker images"
-                 sh "docker push devopstest777/webserverimage"       
-		   
-            
-            }}
-    
-         }
-
-post {
-		always {
-			sh 'docker logout'
-		}
-	}
-
-}
+     
+	 }}
