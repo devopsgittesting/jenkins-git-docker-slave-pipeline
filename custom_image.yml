@@ -6,4 +6,4 @@
    - name: Build Image
      docker_image:
        path: /root/
-       name: webserverimage
+       name: devopstest777/webserverimage
