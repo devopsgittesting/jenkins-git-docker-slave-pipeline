@@ -8,3 +8,5 @@
        path: /root/
        name: webserverimage
        repository: devopstest777/webserverimage:latest
+       force_tag: yes
+       source: local
