@@ -10,7 +10,7 @@
     - name: web server container
       docker_container:
         name: apache_container
-        image: webserverimage
+        image: devopstest777/webserverimage
         state: started
         ports:
           - "8080:80"
