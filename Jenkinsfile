@@ -36,7 +36,7 @@ pipeline {
                     sh "docker login -u devopstest777 -p ${dockerid}"
                 }
                 
-                sudo sh "docker push devopstest777/webserverimage:latest "
+                 sh "docker push devopstest777/webserverimage:latest "
             }
         }
      
