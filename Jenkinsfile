@@ -22,7 +22,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'docker_pwd', variable: 'dockerHubPwd')]) {
                     sh "docker login -u devopstest777 -p ${dockerHubPwd}"
                 }
-                 
+	    }}
                  stage('Create container') {
                  steps {
          ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'create_container.yml'
