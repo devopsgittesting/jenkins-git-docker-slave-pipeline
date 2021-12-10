@@ -1,5 +1,5 @@
 pipeline {
-         agent any
+	agent { label 'Linux_slave1'}
          stages {
              
              
@@ -8,21 +8,20 @@ pipeline {
           git branch: 'main', url: 'https://github.com/devopsgittesting/jenkins-git-ansible-docker-pipeline.git'
         }
       }
-             
-                 stage('Pull Image') {
-                 steps {
-                     echo 'Hi, this is Build Stage one'
-                ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'pull_image.yml'
-                 }}
-                 
-                 
-                 
-                    stage('Build Custom Image & Push to DockerHub') {
-                 steps {
-                    ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'custom_image.yml'
-                 }
-                    }      
                
+        stage('Docker Build'){
+            steps{
+                sh "docker build . -t devopstest777/apacheserverimage:latest "
+            }
+        }
+                 
+                 
+            
+        stage('DockerHub Push'){
+            steps{
+                withCredentials([string(credentialsId: 'docker_pwd', variable: 'dockerHubPwd')]) {
+                    sh "docker login -u devopstest777 -p ${dockerHubPwd}"
+                }
                  
                  stage('Create container') {
                  steps {
