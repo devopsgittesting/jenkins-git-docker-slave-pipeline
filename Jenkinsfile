@@ -5,7 +5,7 @@ pipeline {
              
              stage("Git Checkout"){
         steps{
-          git branch: 'main', url: 'https://github.com/devopsgittesting/jenkins-git-ansible-docker-pipeline.git'
+          git branch: 'main', url: 'https://github.com/devopsgittesting/jenkins-git-docker-slave-pipeline.git'
         }
       }
                
