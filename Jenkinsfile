@@ -25,7 +25,7 @@ pipeline {
 	    }}
                  stage('Create container') {
                  steps {
-         ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'create_container.yml'
+
                  }
                  }
      
