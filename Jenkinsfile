@@ -25,7 +25,7 @@ pipeline {
 	    }}
                  stage('Create container') {
                  steps {
-
+                      docker run -d -p 8080:80 - name my-tomcat-app devopstest777/apacheserverimage:latest
                  }
                  }
      
